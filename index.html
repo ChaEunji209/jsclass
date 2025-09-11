@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Units Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Math Units Converter</h2>
+
+  <div class="box">
+    <!-- 1. choose what to convert -->
+    <label>Choose conversion:</label><br>
+    <select id="job">
+      <option value="mi-km">Miles → Kilometres</option>
+      <option value="f-c">Fahrenheit → Celsius</option>
+      <option value="c-f">Celsius → Fahrenheit</option>
+      <option value="ft-in">Feet → Inches</option>
+      <option value="cir">Circle area (from radius)</option>
+      <option value="tri">Triangle area (base & height)</option>
+      <option value="f-cm">Feet → Centimeter </option>
+      <option value="sqr">Square area (from side)</option>
+    </select><br>
+
+    <!-- 2. input boxes (we change labels later) -->
+    <span id="label1"> Value</span>
+    <input type="number" id="val1"><br> <br>
+    <span id="label2" style="display:none">Value2</span>
+    <input type="number" id="val2" style="display:none"><br>
+
+    <!-- 3. convert button -->
+    <button onclick="convert()">Convert</button><br>
+
+    <!-- 4. answer -->
+    <p id="answer">Answer: </p>
+  </div>
+
+<script src="function.js"></script>
+</body>
+</html>

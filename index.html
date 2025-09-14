@@ -2,44 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Math Units Converter</title>
+  <title>Unit Converter UI</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<h1>Maths Unit Converter</h1>
 
-  <h2>Math Units Converter</h2>
+<div class="container">
+      <!-- Miles → km -->
+      <div class="section">
+        <div class="image-box"><img src="https://i.postimg.cc/TPkHyN19/SAVE-20250912-155559.jpg" alt="Miles to Km"></div>
+        <h3>Miles → Kilometres</h3><br>
+        <input type="number" id="val-mi-km" placeholder="miles"><br>
+        <input type="button" value="Convert" onclick="convert('mi-km')">
+        <p id="res-mi-km"></p>
+      </div>
 
-  <div class="box">
-    <!-- 1. choose what to convert -->
-    <label>Choose conversion:</label><br>
-    <select id="job">
-      <option value="mi-km" >Miles → Kilometres</option>
-      <option value="f-c">Fahrenheit → Celsius</option>
-      <option value="c-f">Celsius → Fahrenheit</option>
-      <option value="ft-in">Feet → Inches</option>
-      <option value="cir">Circle area (from radius)</option>
-      <option value="tri">Triangle area (base & height)</option>
-      <option value="f-cm">Feet → Centimeter </option>
-      <option value="sqr">Square area (from side)</option>
-    </select><br>
+      <!-- Feet → inches -->
+      <div class="section">
+        <div class="image-box"><img src="https://i.postimg.cc/Gpsq230c/feet-to-inches-conversion-formula-1.png" alt="Feet to Inches"></div>
+        <h3>Feet → Inches</h3><br>
+        <input type="number" id="val-ft-in" placeholder="feet"><br>
+        <input type="button" value="Convert" onclick="convert('ft-in')">
+        <p id="res-ft-in"></p>
+      </div>
 
-    <!-- 2. input boxes (we change labels later) -->
-    <span id="label1"> Value</span>
-    <input type="number" id="val1"><br> <br>
-    <span id="label2" style="display:none">Value2</span>
-    <input type="number" id="val2" style="display:none"><br>
+    <div class="section">
+      <div class="image-box">
+        <img src="https://i.postimg.cc/tgKyZgYD/Celsius-to-Fahrenheit.jpg" alt="Temperature">
+      </div>
 
-    <!-- 3. convert button -->
-    <button onclick="convert()">Convert</button><br>
+      <!-- Celsius → Fahrenheit -->
+      <h3>Celsius → Fahrenheit</h3><br>
+      <input type="number" id="val-c-f" placeholder="celsius"><br>
+      <input type="button" value="Convert" onclick="doCF()">
+      <p id="res-c-f"></p>
 
-    <!-- 4. answer -->
-    <p id="answer">Answer: </p>
-  </div>
+      <!-- Fahrenheit → Celsius -->
+      <h3>Fahrenheit → Celsius</h3><br>
+      <input type="number" id="val-f-c" placeholder="fahrenheit"><br>
+      <input type="button" value="Convert" onclick="doFC()">
+      <p id="res-f-c"></p>
+    </div>
+
+      <!-- Circle area -->
+      <div class="section">
+        <div class="image-box"><img src="https://i.postimg.cc/J0ybTP1R/tun-webp.webp" alt="Circle"></div>
+        <h3>Circle area (radius)</h3><br>
+        <input type="number" id="val-cir" placeholder="radius"><br>
+        <input type="button" value="Convert" onclick="convert('cir')">
+        <p id="res-cir"></p>
+      </div>
+
+      <!-- Triangle area -->
+      <div class="section">
+        <div class="image-box"><img src="https://i.postimg.cc/bJ4KVVQT/Triangle-1.png" alt="Triangle"></div>
+        <h3>Triangle area</h3><br>
+        <input type="number" id="val-tri1" placeholder="base"><br>
+        <input type="number" id="val-tri2" placeholder="height"><br>
+        <input type="button" value="Convert" onclick="convert('tri')">
+        <p id="res-tri"></p>
+      </div>
+
+      <!-- Square area -->
+      <div class="section">
+        <div class="image-box"><img src="https://i.postimg.cc/fWXFTKcG/v4-460px-Find-the-Area-of-a-Quadrilateral-Step-1-Version-9-copy-428x257.jpg" alt="Square"></div>
+        <h3>Square area (side)</h3><br>
+        <input type="number" id="val-sqr" placeholder="side"><br>
+        <input type="button" value="Convert" onclick="convert('sqr')">
+        <p id="res-sqr"></p>
+      </div>
+</div>
+<footer>
+  &copy; 2025 Maths Unit Converter. All Rights Reserved.<br>
+  Designed & Created by Ji and Tun
+</footer>
 
 <script src="function.js"></script>
-
-<script>
-  const v1 = parseFloat(prompt("Enter Miles"))
-</script>
 </body>
 </html>

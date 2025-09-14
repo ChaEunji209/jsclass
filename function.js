@@ -1,37 +1,46 @@
-const $ = id => document.getElementById(id);
+function convert(job) {
+    let v1, v2, ans = '';
 
-function convert(){
-  const job = $("job").value;
-  const v1  = parseFloat($("val1").value);
-  const v2  = parseFloat($("val2").value);
-  let ans;
+    switch(job) {
+      case 'mi-km':
+        v1 = parseFloat(document.getElementById('val-mi-km').value);
+        ans = (v1 * 1.60934).toFixed(2) + ' km';
+        break;
 
-  if(isNaN(v1)){ $("answer").textContent="Please enter a number"; return; }
+      case 'ft-in':
+        v1 = parseFloat(document.getElementById('val-ft-in').value);
+        ans = (v1 * 12).toFixed(2) + ' inches';
+        break;
 
-  switch(job){
-    case "mi-km": ans = (v1 * 1.60934).toFixed(2) + " km"; break;
+      case 'c-f':
+        v1 = parseFloat(document.getElementById('val-c-f').value);
+        ans = (v1 * 9/5 + 32).toFixed(1) + ' °F';
+        break;
 
-    case "f-c":   ans = ((v1-32)*5/9).toFixed(2) + " °C"; break;
+      case 'f-c':
+        v1 = parseFloat(document.getElementById('val-f-c').value);
+        ans = ((v1 - 32) * 5/9).toFixed(1) + ' °C';
+        break;
 
-    case "c-f":   ans = (v1*9/5+32).toFixed(2) + " °F"; break;
+      case 'cir':
+        v1 = parseFloat(document.getElementById('val-cir').value);
+        ans = (Math.PI * v1 * v1).toFixed(2) + ' square units';
+        break;
 
-    case "ft-in": ans = (v1 * 12).toFixed(2) + " inches"; break;
+      case 'tri':
+        v1 = parseFloat(document.getElementById('val-tri1').value);
+        v2 = parseFloat(document.getElementById('val-tri2').value);
+        if (isNaN(v1) || isNaN(v2)) { ans = 'Enter both base & height'; break; }
+        ans = (0.5 * v1 * v2).toFixed(2) + ' square units';
+        break;
 
-    case "cir":   ans = (Math.PI * v1 * v1).toFixed(2) + " square units"; break;
-
-    case "tri":   if(isNaN(v2)){ $("answer").textContent="Enter both base & height"; return; }
-                  ans = (0.5 * v1 * v2).toFixed(2) + " square units"; break;
-
-    case "f-cm":  ans = (v1 * 30.48).toFixed(2) + "cetimeter"; break;
-
-    case "sqr":   ans = (v1 * v1).toFixed(2) + " square units"; break;
+      case 'sqr':
+        v1 = parseFloat(document.getElementById('val-sqr').value);
+        ans = (v1 * v1).toFixed(2) + ' square units';
+        break;
+    }
+    document.getElementById('res-' + job).textContent = ans;
   }
-  $("answer").textContent = "Answer: " + ans;
-}
 
-/* ---------- show/hide 2nd box when needed ---------- */
-$("job").onchange = () => {
-  const needTwo = $("job").value === "tri";
-  $("label2").style.display = needTwo ? "inline" : "none";
-  $("val2").style.display   = needTwo ? "inline" : "none";
-};
+  function doCF() { convert('c-f'); }   // C → F button
+  function doFC() { convert('f-c'); }   // F → C button
